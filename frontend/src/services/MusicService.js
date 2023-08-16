@@ -15,6 +15,14 @@ class MusicService {
     deleteMusic(musicId){
         return axios.delete(MUSIC_API_BASE_URL + '/' + musicId);
     }
+
+    getMusicById(musicId){
+        return axios.get(MUSIC_API_BASE_URL + '/' + musicId);
+    }
+
+    updateMusic(music, musicId){
+        return axios.put(MUSIC_API_BASE_URL + '/' + musicId, music)
+    }
 }
 
 export default new MusicService()

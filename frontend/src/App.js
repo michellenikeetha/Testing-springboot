@@ -9,7 +9,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element= {<ListMusic />}></Route>
-          <Route path='/add-music' element = {<AddMusic />}></Route>
+          <Route path='/add-music/:id' element = {<AddMusic />}></Route>
         </Routes>
       </Router>
     </div>
