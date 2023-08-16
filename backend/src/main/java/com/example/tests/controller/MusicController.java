@@ -24,6 +24,17 @@ public class MusicController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdMusic);
     }
 
+    @GetMapping("/{musicId}")
+    public ResponseEntity<Music> getMusicById(@PathVariable Integer musicId){
+        Music music = musicService.getMusicById(musicId);
+
+        if(music != null){
+            return ResponseEntity.ok(music);
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<Music>> getAllMusic(){
         List<Music> allMusic = musicService.getAllMusic();

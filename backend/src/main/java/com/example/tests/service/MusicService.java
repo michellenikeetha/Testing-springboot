@@ -24,6 +24,10 @@ public class MusicService {
         return musicRepo.save(music);
     }
 
+    public Music getMusicById(Integer musicId) {
+        return musicRepo.findById(musicId).orElse(null);
+    }
+
     public List<Music> getAllMusic(){
         return musicRepo.findAll();
     }
@@ -35,6 +39,7 @@ public class MusicService {
             existingMusic.setTitle(musicDTO.getTitle());
             existingMusic.setCategory(musicDTO.getCategory());
             existingMusic.setDescription(musicDTO.getDescription());
+            existingMusic.setLink(musicDTO.getLink());
             return musicRepo.save(existingMusic);
         }
         return null; //Music not found
